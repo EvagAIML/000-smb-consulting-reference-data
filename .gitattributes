@@ -1,6 +1,7 @@
-# Git LFS — track large data and model files
-*.csv filter=lfs diff=lfs merge=lfs -text
-*.parquet filter=lfs diff=lfs merge=lfs -text
+# Git LFS — track large model artifacts only.
+# Datasets (*.csv, *.parquet, *.data) are stored as raw bytes so the slug-pattern
+# URL on raw.githubusercontent.com serves them directly. Customer-data uses the
+# original full LFS rule set in 000-smb-consulting-customer-data/.gitattributes.
 *.pkl filter=lfs diff=lfs merge=lfs -text
 *.joblib filter=lfs diff=lfs merge=lfs -text
 *.h5 filter=lfs diff=lfs merge=lfs -text
