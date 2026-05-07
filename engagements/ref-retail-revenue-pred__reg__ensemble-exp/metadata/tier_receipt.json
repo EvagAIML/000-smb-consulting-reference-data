@@ -1,0 +1,61 @@
+{
+  "engagement_slug": "ref-retail-revenue-pred__reg__ensemble-exp",
+  "catalog_entry_slug": "smb-retail-revenue-pred__reg__ensemble",
+  "task_type": "regression",
+  "target": "Product_Store_Sales_Total (per-product-per-store revenue)",
+  "tier_verdict": "tier_1_exceptional",
+  "tier_framework_reference": "system-design.md §6.1",
+  "tier_justification": "Holdout test R² 0.9257 with MAPE 4.77% on a regression task at this scale (~8,800 rows, 12 features) clears the Tier 1 threshold. Cross-validation RMSE Std (19.997, ≈7% of RMSE) indicates stable generalization. Holdout R² (0.9257) is essentially equal to validation R² (0.9303), so no concerning train/test gap.",
+  "primary_model": {
+    "label": "CatBoost",
+    "holdout_metrics": {
+      "RMSE": 291.638003,
+      "MAE": 112.201963,
+      "R2": 0.925676,
+      "Adj_R2": 0.925335,
+      "MAPE": 0.047704
+    },
+    "validation_metrics": {
+      "RMSE_mean": 280.057102,
+      "RMSE_std": 19.997288,
+      "MAE_mean": 110.903949,
+      "MAPE_mean": 0.040660,
+      "R2_mean": 0.930332
+    },
+    "best_hyperparameters": {
+      "regressor__depth": 6,
+      "regressor__iterations": 500,
+      "regressor__learning_rate": 0.05
+    }
+  },
+  "secondary_model": {
+    "label": "Random Forest",
+    "holdout_metrics": {
+      "RMSE": 292.331104,
+      "MAE": 117.012836,
+      "R2": 0.925322,
+      "Adj_R2": 0.924980,
+      "MAPE": 0.052039
+    },
+    "validation_metrics": {
+      "RMSE_mean": 282.376872,
+      "RMSE_std": 17.489643,
+      "MAE_mean": 114.885398,
+      "MAPE_mean": 0.040386,
+      "R2_mean": 0.929223
+    },
+    "best_hyperparameters": {
+      "regressor__max_depth": 10,
+      "regressor__max_features": null,
+      "regressor__n_estimators": 100
+    }
+  },
+  "ranking_metric": "Repeated Validation RMSE",
+  "dataset": {
+    "rows": 8763,
+    "features": 12,
+    "source_url": "https://raw.githubusercontent.com/EvagAIML/000-smb-consulting-reference-data/main/engagements/ref-retail-revenue-pred__reg__ensemble-exp/data/raw/retail_prediction.csv"
+  },
+  "build_run_date": "2026-05-07",
+  "executed_by": "papermill 2.7.0 on Anaconda Python 3.12.7 (macOS arm64)"
+}

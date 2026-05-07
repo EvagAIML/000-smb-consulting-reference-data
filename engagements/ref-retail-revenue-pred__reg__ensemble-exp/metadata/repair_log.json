@@ -1,0 +1,32 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "outcome": "failed",
+      "duration_seconds": 5.393593788146973,
+      "error_type": "PapermillExecutionError",
+      "error_signature": "PapermillExecutionError::",
+      "error_brief": "",
+      "action": "execute notebook end-to-end via papermill"
+    },
+    {
+      "attempt": 2,
+      "outcome": "failed",
+      "duration_seconds": 2.4590742588043213,
+      "error_type": "PapermillExecutionError",
+      "error_signature": "PapermillExecutionError::",
+      "error_brief": "",
+      "action": "execute notebook end-to-end via papermill",
+      "halt_reason": "repetition_fired"
+    },
+    {
+      "attempt": 3,
+      "outcome": "failed",
+      "duration_seconds": 107.23732471466064,
+      "error_type": "PapermillExecutionError",
+      "error_brief": "",
+      "action": "host env force-reinstall: pandas==2.2.2 / scikit-learn==1.6.1 / xgboost==2.1.4 (--force-reinstall --no-deps; were broken against NumPy 2.0.2 in Anaconda 3.12.7 base because pre-existing wheels were compiled against NumPy 1.x and `pip install pkg==X.Y.Z` saw 'requirement already satisfied' and skipped reinstall) + catboost==1.2.8 (missing) + pyarrow upgraded 16.1.0->24.0.0 + scipy upgraded 1.13.1->1.17.1 (also broken vs NumPy 2; transitively imported by sklearn/xgboost/catboost/seaborn). Then re-applied the three deliberate notebook edits (cell 9 try/except, cell 16 URL, diagnostic at index 20) and re-ran papermill end-to-end.",
+      "halt_reason": "attempts_exhausted"
+    }
+  ]
+}

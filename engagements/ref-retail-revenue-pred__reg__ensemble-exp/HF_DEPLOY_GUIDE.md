@@ -13,9 +13,9 @@ Do not start this guide until:
 
 - Task 1 (data migration) and Task 2 (notebook execution) from `CLAUDE_CODE_INSTRUCTIONS.md` are complete
 - Tasks 3a–3g (cleanup, including the cell 218 `BACKEND_URL` update — see "Critical pre-deploy fix" below) are complete
-- The executed notebook has produced these directories on disk:
-  - `backend_space_root/` containing `app.py`, `requirements.txt`, `Dockerfile`, `model_metadata.json`, `primary_model.joblib`, `secondary_model.joblib`
-  - `frontend_space_root/` containing `requirements.txt` and `src/streamlit_app.py`
+- The executed notebook has produced these directories on disk (under the engagement folder, post Task 3e relocation):
+  - `engagements/ref-retail-revenue-pred__reg__ensemble-exp/deployment/backend_space_root/` containing `app.py`, `requirements.txt`, `Dockerfile`, `model_metadata.json`, `primary_model.joblib`, `secondary_model.joblib`
+  - `engagements/ref-retail-revenue-pred__reg__ensemble-exp/deployment/frontend_space_root/` containing `requirements.txt` and `src/streamlit_app.py`
 
 If those directories don't exist, the notebook didn't execute the deployment-asset cells (cells 211, 215, 218). Re-run those cells before proceeding.
 
@@ -82,7 +82,7 @@ Change the cell to target the new Space:
 from huggingface_hub import upload_folder
 upload_folder(
     repo_id="EvagAIML/smb-retail-revenue-pred-backend",
-    folder_path="backend_space_root",
+    folder_path="engagements/ref-retail-revenue-pred__reg__ensemble-exp/deployment/backend_space_root",
     path_in_repo=".",
     repo_type="space",
     commit_message="Initial deploy of smb-retail-revenue-pred backend (catalog entry v1)",
@@ -184,7 +184,7 @@ Locate the cell and change its `repo_id` to:
 from huggingface_hub import upload_folder
 upload_folder(
     repo_id="EvagAIML/smb-retail-revenue-pred-frontend",
-    folder_path="frontend_space_root",
+    folder_path="engagements/ref-retail-revenue-pred__reg__ensemble-exp/deployment/frontend_space_root",
     path_in_repo=".",
     repo_type="space",
     commit_message="Initial deploy of smb-retail-revenue-pred frontend (catalog entry v1)",

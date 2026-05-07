@@ -1,0 +1,20 @@
+{
+  "primary_model_name": "CatBoost",
+  "secondary_model_name": "Random Forest",
+  "primary_label": "CatBoost",
+  "secondary_label": "Random Forest",
+  "primary_holdout_metrics": {
+    "RMSE": 291.6380028850169,
+    "MAE": 112.2019634415953,
+    "R-squared": 0.9256760721426307,
+    "Adj. R-squared": 0.9253351366937437,
+    "MAPE": 0.04770355399064591
+  },
+  "secondary_holdout_metrics": {
+    "RMSE": 292.331104139859,
+    "MAE": 117.0128358475233,
+    "R-squared": 0.9253223787230405,
+    "Adj. R-squared": 0.9249798208272746,
+    "MAPE": 0.0520393669349948
+  }
+}
